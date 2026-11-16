@@ -3,67 +3,164 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nando · Apprentice developer, learning to build for iPhone</title>
-<meta name="description" content="Personal website of Nando, an apprentice software developer in Switzerland: Swift and SwiftUI projects and travel photography.">
+<title>Nando Erni — Apprentice developer, learning to build for iPhone</title>
+<meta name="description" content="Nando Erni is an apprentice software developer in Switzerland, learning Swift and SwiftUI, photographing his travels and playing the saxophone.">
 <meta name="color-scheme" content="light dark">
 <meta name="theme-color" content="#fbfbfd">
 
 <link rel="canonical" href="https://naerdev.ch/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Nando">
-<meta property="og:title" content="Nando · Apprentice developer, learning to build for iPhone">
-<meta property="og:description" content="Personal website of Nando, an apprentice software developer in Switzerland: Swift and SwiftUI projects and travel photography.">
+<meta property="og:site_name" content="Nando Erni">
+<meta property="og:title" content="Nando Erni — Apprentice developer">
+<meta property="og:description" content="Software with care, photographs from the road, and a saxophone in between.">
 <meta property="og:url" content="https://naerdev.ch/">
 <meta property="og:image" content="https://naerdev.ch/images/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="stylesheet" href="css/style.css?v=20261116">
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Person", "name": "Nando", "jobTitle": "Apprentice software developer", "url": "https://naerdev.ch/"}</script>
+<link rel="stylesheet" href="css/style.css?v=20261116f">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Nando Erni","jobTitle":"Apprentice software developer","url":"https://naerdev.ch/","sameAs":["https://github.com/NandoErniDev"]}</script>
 </head>
 <body data-page="home">
 <a class="skip" href="#main">Skip to content</a>
-<header class="site-header" id="site-header"><div class="bar"><a class="wordmark" href="index.html">Nando</a><noscript><nav class="fallback-nav" aria-label="Main"><a href="about.html">About</a><a href="projects.html">Projects</a><a href="travel.html">Travel</a><a href="contact.html">Contact</a></nav></noscript></div></header>
+<header class="site-header" id="site-header"><div class="bar"><a class="wordmark" href="index.html">Nando</a><noscript><nav class="fallback-nav" aria-label="Main"><a href="projects.html">Projects</a><a href="travel.html">Travel</a><a href="hobbies.html">Hobbies</a><a href="about.html">About</a><a href="contact.html">Contact</a></nav></noscript></div></header>
+
 <main id="main">
-<section class="hero"><div class="wrap hero-grid">
-<div>
-<h1>I&rsquo;m Nando. I&rsquo;m learning to build for iPhone.</h1>
-<p class="lede">A software apprentice in Switzerland. I write Swift, photograph the places I travel to, and play the saxophone.</p>
-<p class="hero-actions"><a class="btn" href="projects.html">See my projects</a><a class="btn-quiet btn" href="travel.html">Travel journal</a></p>
-</div>
-<div class="gauge" role="img" aria-label="Illustration of the budget app's gauge: 64 percent of the daily budget remaining">
-  <div class="gauge-box">
-    <svg viewBox="0 0 420 240" aria-hidden="true">
-      <defs><linearGradient id="gg" gradientUnits="userSpaceOnUse" x1="40" y1="0" x2="380" y2="0">
-        <stop offset="0" stop-color="#d93c32"/><stop offset="0.5" stop-color="#f0a53a"/><stop offset="1" stop-color="#30a14e"/></linearGradient></defs>
-      <path class="gauge-track" d="M 40 210 A 170 170 0 0 1 380 210" fill="none" stroke-width="26" stroke-linecap="round" pathLength="100"/>
-      <path id="gauge-arc" class="gauge-arc" d="M 40 210 A 170 170 0 0 1 380 210" fill="none" stroke="url(#gg)" stroke-width="26" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="36"/>
-    </svg>
-    <div class="gauge-readout"><div class="gauge-value" id="gauge-value">CHF 38.40</div><div class="gauge-label">left today</div></div>
-  </div>
-  <p class="gauge-note">The gauge from the budget app I am building. Illustration.</p>
-</div>
-</div></section>
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot" aria-hidden="true"></span>Apprentice developer · Lucerne</p>
+        <h1>Hello, I&rsquo;m<br><span class="soft">Nando.</span></h1>
+        <p class="lede">I&rsquo;m learning to build for iPhone. I write Swift, photograph the places I travel to, and play the saxophone &mdash; usually in that order.</p>
+        <div class="hero-actions">
+          <a class="btn" href="projects.html">See my projects</a>
+          <a class="btn secondary" href="travel.html">Open the travel journal</a>
+        </div>
+        <p class="hero-note"><span class="dot" aria-hidden="true"></span>Currently building a daily budget app in SwiftUI.</p>
+      </div>
 
-<section class="section"><div class="wrap">
-<h2 class="section-title">Selected work</h2>
-<ul class="rows" id="home-projects"></ul>
-<p style="margin-top:24px"><a class="link" href="projects.html">All projects</a></p>
-</div></section>
+      <div class="hero-stage" aria-label="A preview of the daily budget app">
+        <div class="phone">
+          <div class="phone-screen">
+            <div class="phone-notch" aria-hidden="true"></div>
+            <div class="app-screen">
+              <div class="app-status"><span>9:41</span><span class="signal">● ● ●</span></div>
+              <p class="app-kicker">Monday, 16 November</p>
+              <p class="app-title">Good evening, Nando.</p>
+              <div class="app-gauge">
+                <svg viewBox="0 0 200 116" aria-hidden="true">
+                  <defs>
+                    <linearGradient id="gg" gradientUnits="userSpaceOnUse" x1="18" y1="0" x2="182" y2="0">
+                      <stop offset="0" stop-color="#d93c32"/><stop offset=".5" stop-color="#f0a53a"/><stop offset="1" stop-color="#30a14e"/>
+                    </linearGradient>
+                  </defs>
+                  <path class="track" d="M18 104 A 82 82 0 0 1 182 104" fill="none" stroke-width="13" stroke-linecap="round" pathLength="100"/>
+                  <path id="gauge-arc" d="M18 104 A 82 82 0 0 1 182 104" fill="none" stroke="url(#gg)" stroke-width="13" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="36"/>
+                </svg>
+                <div class="app-gauge-value" id="gauge-value">CHF 38.40</div>
+                <p class="app-gauge-label">left today</p>
+              </div>
+              <div class="app-list">
+                <div class="app-row"><span class="ico">C</span><span class="txt"><b>Coffee</b><small>Today, 08:12</small></span><span class="amt">− 4.80</span></div>
+                <div class="app-row"><span class="ico">T</span><span class="txt"><b>Train</b><small>Today, 07:40</small></span><span class="amt">− 8.60</span></div>
+                <div class="app-row"><span class="ico">L</span><span class="txt"><b>Lunch</b><small>Yesterday</small></span><span class="amt">− 12.50</span></div>
+              </div>
+              <div class="app-add">Add an expense</div>
+            </div>
+          </div>
+        </div>
 
-<section class="band section"><div class="wrap">
-<div class="two-col">
-<div><h2>Travel</h2><p class="lede" style="margin-top:16px">Trips, told in photographs.</p><p style="margin-top:20px"><a class="link" href="travel.html">Open the travel journal</a></p></div>
-<div class="teaser" id="home-travel"></div>
-</div></div></section>
+        <div class="float-card float-a">
+          <span class="mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 6h8M8 12h8M8 18h5"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></span>
+          <span><b>SwiftUI</b><small>Written by hand</small></span>
+        </div>
+        <div class="float-card float-b">
+          <span class="mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 3v18M5 8l7-5 7 5M5 16l7 5 7-5"/></svg></span>
+          <span><b>In progress</b><small>Version one</small></span>
+        </div>
+        <div class="float-card float-c">
+          <span class="mini" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.4 3.8 5.3 3.8 8.5s-1.3 6.1-3.8 8.5c-2.5-2.4-3.8-5.3-3.8-8.5S9.5 5.9 12 3.5z"/></svg></span>
+          <span><b>4 journeys</b><small>Across Europe</small></span>
+        </div>
+        <p class="stage-caption"><strong>Daily budget</strong>A small app for one clear question. Illustration, not a screenshot.</p>
+      </div>
+    </div>
+  </section>
 
-<section class="section"><div class="wrap two-col">
-<h2>Right now</h2>
-<div class="prose"><p>I am in the first year of an Informatiker EFZ apprenticeship in application development. Outside work I am learning Swift and SwiftUI and writing my first complete iPhone app by hand, one small piece at a time.</p>
-</div>
-</div></section>
-<noscript><p class="wrap muted" style="padding:24px var(--gutter)">This page needs JavaScript to show its content.</p></noscript>
+  <section class="section statement">
+    <div class="wrap statement-grid">
+      <p class="statement-text" data-reveal>Good software should feel <span class="soft">quiet, useful and a little inevitable.</span></p>
+      <div class="statement-meta" data-reveal data-delay="1">
+        <p class="small muted">That is the standard I am learning to work towards &mdash; in Swift, on the web, and in everything I make for myself.</p>
+        <a class="text-link" href="about.html">More about me<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="work">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div><p class="eyebrow">Selected work</p><h2>Things I&rsquo;m building.</h2></div>
+        <p class="lede">Small, deliberate projects. Most are still in progress, all are written by hand.</p>
+      </div>
+      <div class="home-projects" id="home-projects"></div>
+      <p style="margin-top:32px"><a class="text-link" href="projects.html">All projects<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="travel-band">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <div><p class="eyebrow">Travel journal</p><h2>Four journeys.<br>One long way south.</h2></div>
+        <p class="lede">Places, light and small memories from the road. A journal told one stop at a time.</p>
+      </div>
+      <div class="home-travel" id="home-travel"></div>
+      <p style="margin-top:32px"><a class="text-link" href="travel.html">Open the journal<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap hobby-teaser">
+      <div data-slot="images/hobbies/saxophon.jpg" data-alt="Nando playing the saxophone" data-ratio="4/3" data-label="Saxophone" data-tone="28" data-reveal></div>
+      <div class="hobby-teaser-copy" data-reveal data-delay="1">
+        <p class="eyebrow">Beyond the screen</p>
+        <h2>Saxophone, Jugendmusik and everything in between.</h2>
+        <p class="lede">Music taught me to listen first. Photography taught me to wait for the light. Both make the code better.</p>
+        <div class="hero-actions">
+          <a class="btn secondary" href="hobbies.html">Explore hobbies</a>
+          <a class="text-link" href="travel.html">See the photographs</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section-head" data-reveal><div><p class="eyebrow">Right now</p><h2>A little context.</h2></div></div>
+      <dl class="now-grid" data-reveal>
+        <div><dt>Doing</dt><dd><strong>Informatiker EFZ</strong><br>Application development, year one of four<span data-employer></span>.</dd></div>
+        <div><dt>Learning</dt><dd><strong>Swift &amp; SwiftUI</strong><br>Building my first complete iPhone app, one small piece at a time.</dd></div>
+        <div><dt>Based in</dt><dd><strong>Lucerne, Switzerland</strong><br>Close to the lake, the mountains and a good cup of coffee.</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="contact-band">
+    <div class="wrap" data-reveal>
+      <p class="eyebrow">Contact</p>
+      <h2>Let&rsquo;s make<br><span class="soft">something good.</span></h2>
+      <p>An idea, a question about a project, or just a hello &mdash; email is the best way to reach me.</p>
+      <a class="btn" href="mailto:hello@naerdev.ch">Write me an email</a>
+    </div>
+  </section>
 </main>
+
 <footer class="site-footer" id="site-footer"></footer>
-<script src="content/site.js"></script><script src="js/main.js"></script><script src="content/projects.js"></script><script src="content/trips.js?v=20261116c"></script><script src="content/photo-index.js"></script><script src="js/projects.js"></script><script src="js/travel.js?v=20261116"></script><script src="js/home.js"></script>
+<script src="content/site.js?v=20261116f"></script>
+<script src="js/main.js?v=20261116f"></script>
+<script src="content/projects.js?v=20261116f"></script>
+<script src="js/projects.js?v=20261116f"></script>
+<script src="content/trips.js?v=20261116f"></script>
+<script src="content/photo-index.js?v=20261116f"></script>
+<script src="js/travel.js?v=20261116f"></script>
 </body>
 </html>

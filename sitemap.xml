@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url><loc>https://naerdev.ch/</loc></url>
-  <url><loc>https://naerdev.ch/about.html</loc></url>
   <url><loc>https://naerdev.ch/projects.html</loc></url>
   <url><loc>https://naerdev.ch/travel.html</loc></url>
+  <url><loc>https://naerdev.ch/hobbies.html</loc></url>
+  <url><loc>https://naerdev.ch/about.html</loc></url>
   <url><loc>https://naerdev.ch/contact.html</loc></url>
   <url><loc>https://naerdev.ch/trip.html?id=europareise-1</loc></url>
   <url><loc>https://naerdev.ch/trip.html?id=europareise-2</loc></url>
