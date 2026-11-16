@@ -90,7 +90,7 @@ Any static host works. Push the contents of this folder to the repository root, 
 
 GitHub Pages works for this project because every internal link is relative. The site is also ready for a custom domain.
 
-If you change `css/style.css`, `css/travel.css` or any file in `js/`, bump the `?v=20261116g` query in the HTML links so returning visitors get the new version.
+If you change `css/style.css`, `css/travel.css` or any file in `js/`, bump the `?v=20261116h` query in the HTML links so returning visitors get the new version.
 
 ## Notes
 

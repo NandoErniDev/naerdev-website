@@ -42,6 +42,7 @@
       src: coverOf(p),
       alt: p.title + " — project screenshot",
       ratio: "16 / 10",
+      tone: p.tone,
       label: "Screenshot",
       hint: coverOf(p)
     });
@@ -59,6 +60,7 @@
         src: galleryFile(p, file),
         alt: p.title + " — screen " + (i + 1),
         ratio: "4 / 3",
+        tone: p.tone,
         label: "Screen 0" + (i + 1),
         hint: galleryFile(p, file)
       });
@@ -146,7 +148,7 @@
       card.href = "projects.html#" + p.slug;
       var media = U.makeMedia({
         src: coverOf(p), alt: p.title + " — project screenshot", ratio: "16 / 10",
-        label: "Screenshot", hint: coverOf(p)
+        tone: p.tone, label: "Screenshot", hint: coverOf(p)
       });
       card.appendChild(media);
       card.insertAdjacentHTML("beforeend",
