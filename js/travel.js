@@ -236,10 +236,15 @@
 
     document.title = trip.title + " · Travel journal · " + (S.name || "Nando");
     var desc = trip.description || trip.intro || "";
+    var pageUrl = "https://naerdev.ch/trip.html?id=" + encodeURIComponent(trip.id);
     var md = document.querySelector('meta[name="description"]');
     if (md && desc) md.setAttribute("content", desc);
     var og = document.querySelector('meta[property="og:title"]');
     if (og) og.setAttribute("content", trip.title + " · Travel journal");
+    var ogUrl = document.querySelector('meta[property="og:url"]');
+    if (ogUrl) ogUrl.setAttribute("content", pageUrl);
+    var canonical = document.querySelector('link[rel="canonical"]');
+    if (canonical) canonical.setAttribute("href", pageUrl);
 
     var storySteps = "";
     var ci = 0;

@@ -101,13 +101,11 @@
       "</div>";
 
     var btn = header.querySelector(".menu-btn");
-    var btnLabel = btn.querySelector("span");
     var panel = header.querySelector(".menu-panel");
     var lastFocus = null;
 
     function setMenu(open) {
       btn.setAttribute("aria-expanded", open ? "true" : "false");
-      btnLabel.textContent = open ? "Close" : "Menu";
       btn.innerHTML = '<span>' + (open ? "Close" : "Menu") + "</span>" + (open ? ICON_CLOSE : ICON_MENU);
       panel.hidden = !open;
       document.body.classList.toggle("menu-open", open);
