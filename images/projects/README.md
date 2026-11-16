@@ -9,4 +9,4 @@ images/projects/<slug>/screen-02.jpg
 images/projects/<slug>/screen-03.jpg
 ```
 
-The site shows a designed placeholder until a file exists. JPG, PNG and WebP all work.
+The site shows a designed placeholder until a file exists. Use these `.jpg` names, or update the paths in `content/projects.js` if you prefer `.png` or `.webp`.
