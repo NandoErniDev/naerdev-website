@@ -17,6 +17,7 @@ window.PROJECTS = [
     role: "Design & development",
     platform: "iOS",
     status: "In progress",
+    accent: "#0a84ff",
     tone: 212,
     tags: ["Swift", "SwiftUI", "iOS"],
     featured: true,
@@ -24,7 +25,8 @@ window.PROJECTS = [
     gallery: ["screen-01.jpg", "screen-02.jpg", "screen-03.jpg"],
     highlights: [
       "A single glance answers the only question that matters today.",
-      "Native SwiftUI, no third-party dependencies."
+      "Native SwiftUI, no third-party dependencies.",
+      "Designed for one hand, dark mode and reduced motion."
     ],
     links: []
   },
@@ -38,6 +40,7 @@ window.PROJECTS = [
     role: "Concept & development",
     platform: "iOS",
     status: "Prototype",
+    accent: "#30d158",
     tone: 142,
     tags: ["SwiftUI", "Vision", "Camera"],
     featured: true,
@@ -45,7 +48,8 @@ window.PROJECTS = [
     gallery: ["screen-01.jpg", "screen-02.jpg", "screen-03.jpg"],
     highlights: [
       "Real-time hand tracking, entirely on device.",
-      "A learning loop built around patience, not speed."
+      "A learning loop built around patience, not speed.",
+      "Designed to make an unfamiliar alphabet feel approachable."
     ],
     links: []
   },
@@ -59,6 +63,7 @@ window.PROJECTS = [
     role: "Design & development",
     platform: "Web",
     status: "Ongoing",
+    accent: "#ff9f0a",
     tone: 36,
     tags: ["HTML", "CSS", "JavaScript"],
     featured: true,
@@ -66,7 +71,8 @@ window.PROJECTS = [
     gallery: ["screen-01.jpg", "screen-02.jpg", "screen-03.jpg"],
     highlights: [
       "A curriculum that grows with every lesson I finish.",
-      "Progress stored locally, without an account."
+      "Progress stored locally, without an account.",
+      "A deliberately quiet interface for deep work."
     ],
     links: []
   },
@@ -79,7 +85,8 @@ window.PROJECTS = [
     details: "Every page is a plain file. Projects, trips and photographs are edited in one content file each. The travel journal uses a sticky scrollytelling layout that works without a library and respects reduced motion.",
     role: "Design, code & photography",
     platform: "Web",
-    status: "Built",
+    status: "Live",
+    accent: "#bf5af2",
     tone: 280,
     tags: ["HTML", "CSS", "JavaScript"],
     featured: false,
@@ -87,7 +94,8 @@ window.PROJECTS = [
     gallery: ["screen-01.jpg", "screen-02.jpg", "screen-03.jpg"],
     highlights: [
       "Fast by default: no framework, fonts or third-party scripts.",
-      "A single content file for every project and journey."
+      "A single content file for every project and journey.",
+      "Dark mode, keyboard navigation and reduced-motion support."
     ],
     links: [
       { label: "Source code", url: "https://github.com/NandoErniDev/naerdev-website" }
@@ -103,6 +111,7 @@ window.PROJECTS = [
     role: "Design & development",
     platform: "Web",
     status: "Demo",
+    accent: "#ff375f",
     tone: 350,
     tags: ["HTML", "CSS", "Web design"],
     featured: false,
@@ -110,7 +119,8 @@ window.PROJECTS = [
     gallery: ["screen-01.jpg", "screen-02.jpg", "screen-03.jpg"],
     highlights: [
       "A complete visual identity in one afternoon.",
-      "Mobile-first, accessible and easy to edit."
+      "Mobile-first, accessible and easy to edit.",
+      "Built to show, not to sell."
     ],
     links: []
   }

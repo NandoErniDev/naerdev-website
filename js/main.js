@@ -1,4 +1,4 @@
-/* Shared helpers, masthead, mobile index and footer.
+/* Shared helpers, glass header, mobile menu and footer.
    Loaded on every page after content/site.js. */
 (function () {
   "use strict";
@@ -89,10 +89,9 @@
 
     header.innerHTML =
       '<div class="bar">' +
-        '<a class="wordmark" href="index.html" aria-label="Nando Erni, home"><span class="wordmark-mark" aria-hidden="true">NE</span><span>' + esc(S.fullName || S.name || "Nando Erni") + "</span></a>" +
-        '<span class="header-note">Portfolio &amp; journal · 2026</span>' +
+        '<a class="wordmark" href="index.html" aria-label="Nando, home"><span class="wordmark-mark" aria-hidden="true">N</span><span>' + esc(S.name || "Nando") + "</span></a>" +
         '<nav class="nav" aria-label="Main"><ul>' + items + "</ul></nav>" +
-        '<button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel"><span>Index</span>' + ICON_MENU + "</button>" +
+        '<button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-panel"><span>Menu</span>' + ICON_MENU + "</button>" +
       "</div>" +
       '<div class="menu-panel" id="menu-panel" hidden>' +
         '<nav aria-label="All sections">' + menuLinks + "</nav>" +
@@ -107,7 +106,7 @@
 
     function setMenu(open) {
       btn.setAttribute("aria-expanded", open ? "true" : "false");
-      btn.innerHTML = '<span>' + (open ? "Close" : "Index") + "</span>" + (open ? ICON_CLOSE : ICON_MENU);
+      btn.innerHTML = '<span>' + (open ? "Close" : "Menu") + "</span>" + (open ? ICON_CLOSE : ICON_MENU);
       panel.hidden = !open;
       document.body.classList.toggle("menu-open", open);
       header.classList.toggle("menu-active", open);
@@ -147,7 +146,7 @@
       '<div class="wrap">' +
         '<div class="footer-grid">' +
           '<div class="footer-brand">' +
-            '<a class="wordmark" href="index.html"><span class="wordmark-mark" aria-hidden="true">NE</span><span>' + esc(S.fullName || S.name || "Nando Erni") + "</span></a>" +
+            '<a class="wordmark" href="index.html"><span class="wordmark-mark" aria-hidden="true">N</span><span>' + esc(S.name || "Nando") + "</span></a>" +
             "<p>" + esc(S.tagline || "") + " Based in " + esc(S.region || "Switzerland") + ".</p>" +
             '<a class="footer-mail" href="mailto:' + esc(S.email || "") + '">' + esc(S.email || "") + "</a>" +
           "</div>" +
