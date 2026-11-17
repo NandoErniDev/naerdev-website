@@ -98,7 +98,6 @@
     var cs = countriesOf(t);
     return '<div class="cover-art" style="--hue:' + hueFor(t.id, i) + '">' +
       '<span class="cover-flags" aria-hidden="true">' + cs.map(flag).join(" ") + "</span>" +
-      '<span class="cover-no">' + pad(i + 1) + "</span>" +
       '<span class="cover-line" aria-hidden="true"></span>' +
       '<span class="cover-word" aria-hidden="true">EUROPA</span>' +
     "</div>";
@@ -122,7 +121,7 @@
     var cs = countriesOf(t);
     a.insertAdjacentHTML("beforeend",
       '<div class="journey-info">' +
-        '<div class="journey-meta"><span>' + esc(metaLine(t)) + "</span><span>Journey " + pad(i + 1) + "</span></div>" +
+        '<div class="journey-meta"><span>' + esc(metaLine(t)) + "</span></div>" +
         "<h2>" + esc(t.title) + "</h2>" +
         '<p class="journey-desc">' + esc(t.description || "") + "</p>" +
         '<p class="journey-countries"><span class="flags" aria-hidden="true">' + cs.map(flag).join(" ") + "</span>" +
@@ -141,7 +140,7 @@
       label: "Trip cover", hint: coverPath(t)
     }));
     a.insertAdjacentHTML("beforeend",
-      '<div class="mini-trip-body"><p>Journey ' + pad(i + 1) + "</p><h3>" + esc(t.title) + "</h3>" +
+      '<div class="mini-trip-body"><h3>' + esc(t.title) + "</h3>" +
       "<span>" + esc(metaLine(t)) + "</span></div>");
     return a;
   }
@@ -181,10 +180,9 @@
   }
 
   /* ---- Journey page ------------------------------------------------------- */
-  function stepArt(cc, no, word, hue) {
+  function stepArt(cc, word, hue) {
     return '<div class="j-step-art" style="--hue:' + hue + '">' +
       '<span class="j-art-flag" aria-hidden="true">' + flag(cc) + "</span>" +
-      '<span class="j-art-no">' + esc(no) + "</span>" +
       '<span class="j-art-word" aria-hidden="true">' + esc(word) + "</span>" +
     "</div>";
   }
@@ -251,33 +249,31 @@
     var pi = 0;
     runs.forEach(function (run) {
       var countryId = "country-" + ci;
-      var cNo = pad(ci + 1);
       storySteps +=
         '<section class="j-step j-step-country" id="' + countryId + '" data-kind="country" data-country="' + esc(run.cc) + '"' +
           ' data-name="' + esc(cname(run.cc)) + '" data-note="' + esc(countryNote(trip, run)) + '"' +
-          ' data-hue="' + hueFor(run.cc, ci) + '" data-flag="' + flag(run.cc) + '" data-no="C' + cNo + '"' +
+          ' data-hue="' + hueFor(run.cc, ci) + '" data-flag="' + flag(run.cc) + '"' +
           ' data-count="' + (ci + 1) + " / " + runs.length + ' countries">' +
-          '<div class="j-step-inner"><p class="j-step-meta"><span>Country ' + cNo + "</span></p>" +
+          '<div class="j-step-inner"><p class="j-step-meta"><span>Country</span></p>' +
             '<div class="j-step-country-head"><span class="j-step-country-flag" aria-hidden="true">' + flag(run.cc) + "</span>" +
             '<h2 class="j-step-country-name">' + esc(cname(run.cc)) + "</h2></div>" +
             '<p class="j-step-note">' + esc(countryNote(trip, run)) + "</p></div>" +
-          '<div class="j-step-media">' + stepArt(run.cc, "C" + cNo, run.cc, hueFor(run.cc, ci)) + "</div>" +
+          '<div class="j-step-media">' + stepArt(run.cc, run.cc, hueFor(run.cc, ci)) + "</div>" +
         "</section>";
 
       run.stops.forEach(function (stop) {
         var photo = stop.photos[0] || null;
-        var no = pad(pi + 1);
         var stepId = "step-" + pi;
         storySteps +=
           '<section class="j-step" id="' + stepId + '" data-kind="place" data-country="' + esc(stop.country) + '"' +
             ' data-name="' + esc(stop.name) + '" data-note="' + esc(stop.note) + '"' +
-            ' data-hue="' + hueFor(stop.country, pi) + '" data-flag="' + flag(stop.country) + '" data-no="' + no + '"' +
+            ' data-hue="' + hueFor(stop.country, pi) + '" data-flag="' + flag(stop.country) + '"' +
             ' data-country-name="' + esc(cname(stop.country)) + '" data-count="' + (pi + 1) + " / " + stops.length + ' places"' +
             (photo ? ' data-photo="' + esc(photo.src) + '"' : "") + ">" +
-            '<div class="j-step-inner"><p class="j-step-meta"><span class="no">' + no + '</span><span>·</span><span>' + esc(cname(stop.country)) + "</span></p>" +
+            '<div class="j-step-inner"><p class="j-step-meta"><span>' + esc(cname(stop.country)) + "</span></p>" +
               '<h3 class="j-step-title">' + esc(stop.name) + "</h3>" +
               '<p class="j-step-note">' + esc(stop.note) + "</p></div>" +
-            '<div class="j-step-media">' + stepArt(stop.country, no, stop.country, hueFor(stop.country, pi)) +
+            '<div class="j-step-media">' + stepArt(stop.country, stop.country, hueFor(stop.country, pi)) +
               (photo ? '<img loading="lazy" src="' + esc(photo.src) + '" alt="' + esc(photo.alt) + '">' : "") +
             "</div>" +
           "</section>";
@@ -286,13 +282,8 @@
       ci++;
     });
 
-    var route = runs.map(function (run, ri) {
-      var dots = run.stops.map(function (s) {
-        var stepIndex = stops.indexOf(s);
-        return '<button class="j-dot" type="button" data-target="step-' + stepIndex + '" title="' + esc(s.name) + '" aria-label="Go to ' + esc(s.name) + '"><span></span></button>';
-      }).join("");
-      return '<div class="j-route-group"><p class="j-route-country"><span class="flag" aria-hidden="true">' + flag(run.cc) + "</span>" + esc(cname(run.cc)) + "</p>" +
-        '<div class="j-route-dots">' + dots + "</div></div>";
+    var route = runs.map(function (run) {
+      return '<div class="j-route-group"><p class="j-route-country"><span class="flag" aria-hidden="true">' + flag(run.cc) + "</span>" + esc(cname(run.cc)) + "</p></div>";
     }).join("");
 
     var nexts = TRIPS.filter(function (t, i) { return i !== index; }).slice(0, 2);
@@ -302,13 +293,12 @@
       '<section class="j-hero">' +
         '<div class="j-hero-art" style="--hue:' + hue + '">' +
           '<span class="art-flag" aria-hidden="true">' + countries.map(flag).join(" ") + "</span>" +
-          '<span class="art-no">JOURNEY ' + pad(index + 1) + "</span>" +
           '<span class="art-line" aria-hidden="true"></span>' +
           '<span class="art-word" aria-hidden="true">EUROPA</span>' +
         "</div>" +
         '<div class="j-hero-media" id="j-hero-media"></div>' +
         '<div class="j-hero-inner"><div class="wrap">' +
-          '<p class="j-eyebrow"><span>Travel journal</span><span class="sep">·</span><span>' + pad(index + 1) + " / " + pad(TRIPS.length) + "</span></p>" +
+          '<p class="j-eyebrow"><span>Travel journal</span></p>' +
           '<h1 class="j-title">' + esc(trip.title) + "</h1>" +
           '<p class="j-meta">' + esc(metaLine(trip)) + (trip.dates ? " · " + esc(trip.dates) : "") + "</p>" +
           '<p class="j-flags" aria-hidden="true">' + countries.map(flag).join(" ") + "</p>" +
@@ -317,7 +307,7 @@
       "</section>" +
 
       '<section class="j-intro"><div class="wrap"><div class="j-intro-grid">' +
-        '<p class="j-kicker">01 — The journey</p>' +
+        '<p class="j-kicker">The journey</p>' +
         '<p class="j-statement">' + esc(trip.intro || trip.description || "") + "</p>" +
         '<dl class="j-facts">' +
           '<div><dt>Year</dt><dd>' + esc(trip.year || "—") + "</dd></div>" +
@@ -337,12 +327,11 @@
           '<div class="j-frame" id="j-frame">' +
             '<div class="j-frame-art" id="j-frame-art" style="--hue:' + hue + '">' +
               '<span class="j-art-flag" id="j-frame-art-flag"></span>' +
-              '<span class="j-art-no" id="j-frame-art-no"></span>' +
               '<span class="j-art-word" id="j-frame-art-word"></span>' +
             "</div>" +
             '<button class="j-frame-open" id="j-frame-open" type="button" tabindex="-1" hidden><img class="j-frame-img" id="j-frame-img" alt=""></button>' +
             '<div class="j-frame-copy">' +
-              '<p class="j-frame-eyebrow"><span class="j-frame-no" id="j-frame-no"></span><span>·</span><span id="j-frame-country"></span></p>' +
+              '<p class="j-frame-eyebrow"><span id="j-frame-country"></span></p>' +
               '<h2 class="j-frame-title" id="j-frame-title"></h2>' +
               '<p class="j-frame-note" id="j-frame-note"></p>' +
             "</div>" +
@@ -378,9 +367,7 @@
     var frame = document.getElementById("j-frame");
     var frameArt = document.getElementById("j-frame-art");
     var frameArtFlag = document.getElementById("j-frame-art-flag");
-    var frameArtNo = document.getElementById("j-frame-art-no");
     var frameArtWord = document.getElementById("j-frame-art-word");
-    var frameNo = document.getElementById("j-frame-no");
     var frameCountry = document.getElementById("j-frame-country");
     var frameTitle = document.getElementById("j-frame-title");
     var frameNote = document.getElementById("j-frame-note");
@@ -392,7 +379,6 @@
     var top = document.getElementById("j-progress");
     var topBar = document.getElementById("j-progress-bar");
     var story = document.getElementById("story");
-    var dots = Array.prototype.slice.call(document.querySelectorAll(".j-dot"));
     var currentPhoto = null;
     var active = null;
 
@@ -405,20 +391,16 @@
       if (!step || step === active) return;
       active = step;
       stepEls.forEach(function (s) { s.classList.toggle("is-active", s === step); });
-      dots.forEach(function (d) { d.classList.toggle("is-active", d.getAttribute("data-target") === step.id); });
 
       var cc = step.getAttribute("data-country") || "";
       var name = step.getAttribute("data-name") || "";
       var note = step.getAttribute("data-note") || "";
-      var no = step.getAttribute("data-no") || "";
       var kind = step.getAttribute("data-kind");
       var stepHue = step.getAttribute("data-hue") || hue;
 
       frameArt.style.setProperty("--hue", stepHue);
       frameArtFlag.textContent = step.getAttribute("data-flag") || flag(cc);
-      frameArtNo.textContent = no;
       frameArtWord.textContent = cc || "";
-      frameNo.textContent = no;
       frameCountry.textContent = step.getAttribute("data-country-name") || cname(cc);
       frameTitle.textContent = name;
       frameNote.textContent = note;
@@ -459,14 +441,6 @@
       }
       setActive(stepEls[0]);
     }
-
-    dots.forEach(function (d) {
-      d.addEventListener("click", function () {
-        var target = document.getElementById(d.getAttribute("data-target"));
-        if (!target) return;
-        target.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth", block: "center" });
-      });
-    });
 
     document.querySelectorAll(".j-step-media img").forEach(function (img) {
       img.addEventListener("error", function () { img.style.display = "none"; });

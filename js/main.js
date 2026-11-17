@@ -82,9 +82,9 @@
       return '<li><a href="' + esc(n.href) + '"' + cur + ">" + esc(n.label) + "</a></li>";
     }).join("");
 
-    var menuLinks = (S.nav || []).map(function (n, i) {
+    var menuLinks = (S.nav || []).map(function (n) {
       var cur = n.id === page ? ' aria-current="page"' : "";
-      return '<a href="' + esc(n.href) + '"' + cur + "><span>" + esc(n.label) + "</span><span>" + (i < 9 ? "0" + (i + 1) : i + 1) + "</span></a>";
+      return '<a href="' + esc(n.href) + '"' + cur + "><span>" + esc(n.label) + "</span></a>";
     }).join("");
 
     header.innerHTML =

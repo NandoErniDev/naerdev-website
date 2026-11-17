@@ -13,7 +13,7 @@
   }
 
   function status(p) {
-    return '<span class="project-status"><span class="dot" aria-hidden="true"></span>' + esc(p.status) + "</span>";
+    return '<span class="project-status">' + esc(p.status) + "</span>";
   }
 
   function linkList(p) {
@@ -61,7 +61,7 @@
         alt: p.title + " — screen " + (i + 1),
         ratio: "4 / 3",
         tone: p.tone,
-        label: "Screen 0" + (i + 1),
+        label: "Screen",
         hint: galleryFile(p, file)
       });
       thumb.appendChild(media);
@@ -83,7 +83,6 @@
 
     el.innerHTML =
       '<div class="project-head">' +
-        '<span class="project-index">' + String(i + 1).padStart(2, "0") + "</span>" +
         "<div><p class=\"project-kicker\">" + esc(p.kicker || p.platform || "") + "</p>" +
         "<h2>" + esc(p.title) + "</h2>" +
         '<p class="project-summary">' + esc(p.summary) + "</p></div>" +
