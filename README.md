@@ -35,7 +35,7 @@ Or `npx serve .`. Every page is a file; there is nothing to compile.
 - **Site settings:** `content/site.js` (name, email, domain, navigation, social links).
 - **Projects:** `content/projects.js`. Add a block, then drop screenshots into its folder.
 - **Travel:** `content/trips.js`. All four journeys and all 80 places live there.
-- **Photos:** see below.
+- **Photos:** see below, or open the complete German checklist in `BILDER-LISTE.md`.
 - **Copy:** the HTML files are meant to be read and edited directly.
 
 The current contact address is `hello@naerdev.ch` and the canonical domain is `https://naerdev.ch`. Change both in `content/site.js` if needed, then update the canonical URLs in the HTML and `sitemap.xml`.
