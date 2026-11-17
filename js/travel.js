@@ -133,16 +133,18 @@
 
   function miniTrip(t, i) {
     var a = document.createElement("a");
-    a.className = "mini-trip";
+    a.className = "journey-line";
     a.href = journeyUrl(t);
-    a.innerHTML = coverArt(t, i);
-    a.appendChild(U.makeMedia({
-      src: coverPath(t), alt: coverAlt(t), className: "cover-media",
-      label: "Trip cover", hint: coverPath(t)
-    }));
-    a.insertAdjacentHTML("beforeend",
-      '<div class="mini-trip-body"><p>Journey ' + pad(i + 1) + "</p><h3>" + esc(t.title) + "</h3>" +
-      "<span>" + esc(metaLine(t)) + "</span></div>");
+    var cs = countriesOf(t);
+    a.innerHTML =
+      '<span class="journey-line-no">J' + pad(i + 1) + "</span>" +
+      '<span class="journey-line-main">' +
+        '<span class="journey-line-kicker">' + esc(metaLine(t)) + "</span>" +
+        '<span class="journey-line-title">' + esc(t.title) + "</span>" +
+        '<span class="journey-line-desc">' + esc(t.description || "") + "</span>" +
+      "</span>" +
+      '<span class="journey-line-route">' + cs.map(function (c) { return esc(cname(c)); }).join(" · ") + "</span>" +
+      '<span class="journey-line-arrow" aria-hidden="true">↗</span>';
     return a;
   }
 

@@ -13,7 +13,7 @@
   }
 
   function status(p) {
-    return '<span class="project-status"><span class="dot" aria-hidden="true"></span>' + esc(p.status) + "</span>";
+    return '<span class="project-status">' + esc(p.status) + "</span>";
   }
 
   function linkList(p) {
@@ -31,13 +31,6 @@
   function shot(p) {
     var box = document.createElement("div");
     box.className = "project-shot";
-    box.style.setProperty("--accent", p.accent || "#0a84ff");
-    box.innerHTML =
-      '<div class="shot-ui" aria-hidden="true">' +
-        '<div class="shot-bar"><i></i><i></i><i></i><span>' + esc(p.title) + "</span></div>" +
-        '<div class="shot-canvas"><div class="big"></div><div class="small"><i></i><i></i><i></i></div></div>' +
-      "</div>" +
-      '<span class="shot-label">Project screenshot</span>';
     var media = U.makeMedia({
       src: coverOf(p),
       alt: p.title + " — project screenshot",
@@ -74,11 +67,10 @@
     var el = document.createElement("article");
     el.className = "project";
     el.id = p.slug;
-    el.style.setProperty("--accent", p.accent || "#0a84ff");
     el.setAttribute("data-tags", [p.platform].concat(p.tags || []).join(" ").toLowerCase());
 
     var highlights = (p.highlights || []).map(function (h) {
-      return '<li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7"/></svg><span>' + esc(h) + "</span></li>";
+      return "<li>" + esc(h) + "</li>";
     }).join("");
 
     el.innerHTML =
@@ -142,23 +134,28 @@
   if (home) {
     var featured = P.filter(function (p) { return p.featured; }).slice(0, 3);
     if (!featured.length) featured = P.slice(0, 3);
-    home.innerHTML = featured.map(function (p) {
-      var card = document.createElement("a");
-      card.className = "project-card";
-      card.href = "projects.html#" + p.slug;
-      var media = U.makeMedia({
-        src: coverOf(p), alt: p.title + " — project screenshot", ratio: "16 / 10",
+    home.innerHTML = featured.map(function (p, i) {
+      var row = document.createElement("a");
+      row.className = "project-row";
+      row.href = "projects.html#" + p.slug;
+
+      var visual = document.createElement("div");
+      visual.className = "project-row-visual";
+      visual.appendChild(U.makeMedia({
+        src: coverOf(p), alt: p.title + " — project screenshot", ratio: "3 / 2",
         tone: p.tone, label: "Screenshot", hint: coverOf(p)
-      });
-      card.appendChild(media);
-      card.insertAdjacentHTML("beforeend",
-        '<div class="project-card-body">' +
-          '<div class="project-card-meta"><span>' + esc(p.kicker || "") + "</span><span>" + esc(p.year || "") + "</span></div>" +
-          "<h3>" + esc(p.title) + "</h3>" +
-          "<p>" + esc(p.summary) + "</p>" +
-          '<span class="text-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>' +
-        "</div>");
-      return card.outerHTML;
+      }));
+
+      row.innerHTML =
+        '<span class="project-row-no">' + String(i + 1).padStart(2, "0") + "</span>" +
+        '<span class="project-row-main">' +
+          '<span class="project-row-kicker">' + esc(p.kicker || p.platform || "") + " · " + esc(p.year || "") + "</span>" +
+          '<span class="project-row-title">' + esc(p.title) + "</span>" +
+          '<span class="project-row-summary">' + esc(p.summary) + "</span>" +
+        "</span>" +
+        '<span class="project-row-arrow" aria-hidden="true">↗</span>';
+      row.insertBefore(visual, row.querySelector(".project-row-arrow"));
+      return row.outerHTML;
     }).join("");
   }
 })();
