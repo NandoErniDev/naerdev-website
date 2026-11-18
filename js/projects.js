@@ -83,8 +83,7 @@
 
     el.innerHTML =
       '<div class="project-head">' +
-        "<div><p class=\"project-kicker\">" + esc(p.kicker || p.platform || "") + "</p>" +
-        "<h2>" + esc(p.title) + "</h2>" +
+        "<div><h2>" + esc(p.title) + "</h2>" +
         '<p class="project-summary">' + esc(p.summary) + "</p></div>" +
         status(p) +
       "</div>" +
@@ -152,7 +151,6 @@
       card.appendChild(media);
       card.insertAdjacentHTML("beforeend",
         '<div class="project-card-body">' +
-          '<div class="project-card-meta"><span>' + esc(p.kicker || "") + "</span><span>" + esc(p.year || "") + "</span></div>" +
           "<h3>" + esc(p.title) + "</h3>" +
           "<p>" + esc(p.summary) + "</p>" +
           '<span class="text-link">View project <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>' +

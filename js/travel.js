@@ -207,7 +207,7 @@
 
   function notFound(root) {
     root.innerHTML =
-      '<div class="wrap j-notfound"><p class="eyebrow">Travel journal</p><h1>This journey isn&rsquo;t here.</h1>' +
+      '<div class="wrap j-notfound"><h1>This journey isn&rsquo;t here.</h1>' +
       '<p class="lede">The address may be old, or the journey may still be private.</p>' +
       '<div class="hero-actions"><a class="btn" href="travel.html">All journeys</a><a class="btn secondary" href="index.html">Home</a></div></div>';
   }
@@ -298,7 +298,6 @@
         "</div>" +
         '<div class="j-hero-media" id="j-hero-media"></div>' +
         '<div class="j-hero-inner"><div class="wrap">' +
-          '<p class="j-eyebrow"><span>Travel journal</span></p>' +
           '<h1 class="j-title">' + esc(trip.title) + "</h1>" +
           '<p class="j-meta">' + esc(metaLine(trip)) + (trip.dates ? " · " + esc(trip.dates) : "") + "</p>" +
           '<p class="j-flags" aria-hidden="true">' + countries.map(flag).join(" ") + "</p>" +
